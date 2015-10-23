@@ -50,19 +50,18 @@
     arc.arcpro.initialize.prototype = arc.arcpro;
 })();
 
-
+x=1;
         function dispdate()
         {
             //var form_div = document.querySelector(this.selector);
             //alert("hello");
-            div1=document.createElement("div");
-            disp_time=document.createElement("p");
-            form_div.appendChild(div1);
-            div1.appendChild(disp_time);
             
+            
+            
+        
             
             //alert("a");
-            function clock(){
+            
             var time=new Date();
             hr=time.getHours();
             min=time.getMinutes();
@@ -80,19 +79,22 @@
             else
                 tod="AM";
                 nowtime=hr+":"+min+":"+sec+ " "+" "+tod;
-                
+                //now.nodeValue=nowtime;
+                if(x==1)
+                {
+                    div1=document.createElement("div");
+                    disp_time=document.createElement("p");
+                    form_div.appendChild(div1);
+                    div1.appendChild(disp_time);
+                    now=document.createTextNode(nowtime);
+                    disp_time.appendChild(now);
+                    now.setAttribute("class",now1);
+                }
+                x=0;
+                document.getElementsByClassName("now1")=nowtime;
                 
                 //disp_time.removeChild();
-                var t=setTimeout(function(){clock()},1000);
+                var t=setInterval(function(){dispdate()},1000);
             }
-                clock();
-            now=document.createTextNode(nowtime);
-                disp_time.appendChild(now);
+                //clock();
             
-            
-            
-        
-            //alert(nowtime);
-            
-            
-        }
